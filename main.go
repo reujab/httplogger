@@ -45,7 +45,7 @@ func Wrap(handler http.HandlerFunc, callback func(*Request)) http.HandlerFunc {
 		url := req.URL
 		start := time.Now()
 
-		handler(writer, req)
+		handler(writer.ResponseWriter, req)
 		callback(&Request{
 			Request:  req,
 			Response: res,
